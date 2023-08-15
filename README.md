@@ -5,21 +5,21 @@ This Project Is For my 3 Months Anniversery With PHP , And It Accomplished nearl
 It's just a Full Stack "Framework" That Gives the worst UX Ever in human History
 
 # The Features
-*CLI Tool ( not the best )
-*Migration
-*Router
-*Templating Engine ( Smarty )
+-CLI Tool ( not the best )
+-Migration
+-Router
+-Templating Engine ( Smarty )
 
 # ⚠️ WARNING Do not use this Framework For Production Based Purposes.
 
 
 ## List Of Command Lines
 
-*php log server : Starts The App 
-*php make:migrattion 'migrationName' : Creates A Migration
-*php make:model 'ModelName' : Creates A Model
-*php migrate 'migrationName' : Set up a previously Made Migration To Be Executed
-*php migrate : Migrate ( Warning you can only migrate a single migration at once )
+-php log server : Starts The App 
+-php make:migrattion 'migrationName' : Creates A Migration
+-php make:model 'ModelName' : Creates A Model
+-php migrate 'migrationName' : Set up a previously Made Migration To Be Executed
+-php migrate : Migrate ( Warning you can only migrate a single migration at once )
 
 #Also...
 
