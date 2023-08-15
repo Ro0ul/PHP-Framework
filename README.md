@@ -25,3 +25,8 @@ It's just a Full Stack "Framework" That Gives the worst UX Ever in human History
 
 - When you make A Model Or A Migration , you might need to change the  class name , and some properties to get stuff working...
 - And it only works on linux
+
+### Usage 
+
+- 1 Clone The Repo
+- 2 In The Repo Directory Type php log serve , and visit 0.0.0.0:8080 or 127.0.0.1:8080
