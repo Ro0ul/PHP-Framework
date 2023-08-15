@@ -1,0 +1,61 @@
+#! /usr/bin/php 
+<?php 
+
+require_once "vendor/autoload.php";
+
+use App\core\error\Cli;
+
+$command = $argv[1];
+
+$isFound = false;
+$availableCommands = [
+    "serve"=>"php -S 0.0.0.0:8080 -t public",
+    "migrate"=>"php app/database/migrate.php"
+];
+function migrate(string $migrationName){
+    exec("php app/database/migrations/$migrationName.php");
+}
+function createMigration(string $migrationName){
+    exec("touch app/database/migrations/$migrationName.php");
+    $exampleFile = file_get_contents("app/database/migrations/example.php");
+    file_put_contents("app/database/migrations/$migrationName.php",$exampleFile);
+}
+function createModel(string $modelName)
+{
+    exec("touch app/models/$modelName.php");
+    $exampleFile = file_get_contents("app/models/example.php");
+    file_put_contents("app/models/$modelName.php", $exampleFile);
+}
+
+foreach($availableCommands as $availableCommand => $execution)
+    {
+        if($argc <= 2){
+            if($command == $availableCommand){
+                if($command == "migrate"){
+                    echo "Migrating...";
+                }
+                $isFound = true;
+                exec($execution);
+                return;
+            }
+        }
+        if($argc > 2){
+            if($command == "migrate"){
+                $migrationName = $argv[2];
+                migrate($migrationName);
+                $isFound = true;
+            }
+            if($command == "make:migration"){
+                $migrationName = $argv[2];
+                createMigration($migrationName);
+                $isFound = true;
+            }if($command == "make:model"){
+                $modelName = $argv[2];
+                createModel($modelName);
+                $isFound = true;
+            }
+        }
+    }
+if(!$isFound){
+    throw Cli::notFound($command);
+}

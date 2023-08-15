@@ -1,0 +1,9 @@
+composer.lock
+vendor/*
+public/templates_c
+tmp/cache/*
+tmp/log/*
+!tmp
+app/database/migrations/*
+!app/database/migrations/example.php
+!app/database/migrations/migrator.php
