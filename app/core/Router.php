@@ -12,6 +12,22 @@ class Router
     {
         static::run($uri,"get",$callback);
     }
+    public static function post(string $uri, callable | Closure | array $callback) : void 
+    {
+        static::run($uri,"post",$callback);
+    }
+    public static function put(string $uri, callable | Closure | array $callback) : void 
+    {
+        static::run($uri,"put",$callback);
+    }
+    public static function patch(string $uri, callable | Closure | array $callback) : void 
+    {
+        static::run($uri,"patch",$callback);
+    }
+    public static function delete(string $uri, callable | Closure | array $callback) : void 
+    {
+        static::run($uri,"delete",$callback);
+    }
     public static function set404(callable | Closure | array $callback) : void 
     {
         static::$callback = $callback;
